@@ -24,11 +24,11 @@ $stmt = $dbh->query($sql);
 $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
 // Databaseから参照に変更
+$match = "SELECT pass FROM user WHERE name =".'"'.$_GET['name'].'"';
+$stmt_3 = $dbh->query($match);
+$result_3 = $stmt_3->fetch(PDO::FETCH_ASSOC);
 
-
-if(($_GET['name']=="hijiri"&&$_GET['pass']=="55itolab!!")||($_GET['name']=="kuroyanagi"&&$_GET['pass']=="55itolab!!")||($_GET['name']=="matsubara"&&$_GET['pass']=="55itolab!!")||($_GET['name']=="kamohara"&&$_GET['pass']=="55itolab!!")){
-// foreach文で配列の中身を一行ずつ出力
-
+if($result_3['pass'] == $_GET['pass']){
 //ユーザid検索結果格納
 
 
